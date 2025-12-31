@@ -1689,4 +1689,9 @@ body.portfolio-single-active #portfolio-overlay {
   position: relative;
   z-index: 999;
 }
+body.portfolio-single-active:before {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.6); /* darker = clearer */
+}
 }
