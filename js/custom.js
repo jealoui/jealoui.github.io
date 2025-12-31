@@ -6,9 +6,13 @@ AOS.init({
 
 $(function(){
 
-	'use strict';
+		'use strict';
+
+	// Remove portfolio-single-active class on page load
+	$('body').removeClass('portfolio-single-active');
 
 	$(".loader").delay(50).fadeOut("slow");
+
 	$("#overlayer").delay(50).fadeOut("slow");	
 
 	var siteMenuClone = function() {
