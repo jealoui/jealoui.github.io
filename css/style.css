@@ -1669,3 +1669,16 @@ figure.dotted-bg {
       .site-footer .social li a:hover {
         background: #36a1ff;
         color: #ffffff; }
+
+body.portfolio-single-active::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 998;
+}
+
+#portfolio-single-holder {
+	position: relative;
+	z-index: 999;
+}
