@@ -1669,3 +1669,66 @@ figure.dotted-bg {
       .site-footer .social li a:hover {
         background: #36a1ff;
         color: #ffffff; }
+
+#portfolio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+body.portfolio-single-active #portfolio-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#portfolio-single-holder {
+  position: relative;
+  z-index: 999;
+}
+body.portfolio-single-active:before {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.6); /* darker = clearer */
+}
+/* Portfolio Overlay - Add this to your existing style.css */
+
+/* Dark overlay that appears behind portfolio items */
+#portfolio-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show overlay when portfolio is active */
+body.portfolio-single-active #portfolio-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ensure portfolio content is above the overlay */
+#portfolio-single-holder {
+  position: relative;
+  z-index: 999;
+}
+
+/* Make portfolio wrapper fade when single item is active */
+body.portfolio-single-active .portfolio-wrapper {
+  opacity: 0.3;
+}
+
+/* Optional: Prevent scrolling of background content when portfolio is open */
+body.portfolio-single-active {
+  overflow: hidden;
+}
+}
