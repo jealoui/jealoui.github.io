@@ -262,6 +262,7 @@ $(function(){
 	};
 	jarallaxPlugin();
 
+	
 
 	var accordion = function() {
 		$('.btn-link[aria-expanded="true"]').closest('.accordion-item').addClass('active');
@@ -283,6 +284,7 @@ $(function(){
 		$(this).removeClass('unfocus');
 		links.removeClass('unfocus');
 	})
+
 
 
 	var siteIstotope = function() {
@@ -493,22 +495,23 @@ var portfolioItemClick = function() {
 
 	});
 
-// Close when clicking the dark overlay
-$('body').on('click', '#portfolio-overlay', function () {
-  $('body').removeClass('portfolio-single-active');
+	// Close
+	$('body').on('click', '.js-close-portfolio', function() {
 
-  TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
-  TweenMax.to('.portfolio-single-inner', 0.5, {
-    autoAlpha: 0,
-    display: 'none',
-    onComplete() {
-      TweenMax.to('.portfolio-wrapper', 0.5, {
-        autoAlpha: 1,
-        marginTop: '0px'
-      });
-    }
-  });
-});
+		setTimeout(function(){
+			$('html, body').animate({
+				scrollTop: $('#portfolio-section').offset().top - 50
+			}, 700, 'easeInOutExpo');
+		}, 200);
+
+		TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
+		TweenMax.to('.portfolio-single-inner', 1, { marginTop: '50px', opacity: 0,  display: 'none', onComplete() {
+			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '0px', autoAlpha: 1, position: 'relative' });
+
+		} });
+		
+	});
+};
 
 $(document).ajaxStop(function(){
 	setTimeout(function(){
@@ -521,16 +524,10 @@ var loadPortfolioSinglePage = function(id, href) {
 		url: href,
 		type: 'GET',
 		success: function(html) {
-			  $('body').addClass('portfolio-single-active');
 
-  TweenMax.to('.portfolio-wrapper', 1, {
-    marginTop: '50px',
-    autoAlpha: 0,
-    visibility: 'hidden',
-    onComplete() {
-      TweenMax.set('.portfolio-wrapper', { height: 0 });
-    }
-  });
+			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '50px', autoAlpha: 0, visibility: 'hidden', onComplete() {
+				TweenMax.set('.portfolio-wrapper', { height: 0 });
+			} })
 
 			var pSingleHolder = $('#portfolio-single-holder');
 			
