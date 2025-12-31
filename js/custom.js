@@ -495,7 +495,7 @@ var portfolioItemClick = function() {
 
 	// Close
 	$('body').on('click', '.js-close-portfolio', function() {
-
+$('body').removeClass('portfolio-single-active');
 		setTimeout(function(){
 			$('html, body').animate({
 				scrollTop: $('#portfolio-section').offset().top - 50
@@ -532,10 +532,6 @@ var loadPortfolioSinglePage = function(id, href) {
       TweenMax.set('.portfolio-wrapper', { height: 0 });
     }
   });
-
-			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '50px', autoAlpha: 0, visibility: 'hidden', onComplete() {
-				TweenMax.set('.portfolio-wrapper', { height: 0 });
-			} })
 
 			var pSingleHolder = $('#portfolio-single-holder');
 			
