@@ -493,23 +493,22 @@ var portfolioItemClick = function() {
 
 	});
 
-	// Close
-	$('body').on('click', '.js-close-portfolio', function() {
-$('body').removeClass('portfolio-single-active');
-		setTimeout(function(){
-			$('html, body').animate({
-				scrollTop: $('#portfolio-section').offset().top - 50
-			}, 700, 'easeInOutExpo');
-		}, 200);
+// Close when clicking the dark overlay
+$('body').on('click', '#portfolio-overlay', function () {
+  $('body').removeClass('portfolio-single-active');
 
-		TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
-		TweenMax.to('.portfolio-single-inner', 1, { marginTop: '50px', opacity: 0,  display: 'none', onComplete() {
-			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '0px', autoAlpha: 1, position: 'relative' });
-
-		} });
-		
-	});
-};
+  TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
+  TweenMax.to('.portfolio-single-inner', 0.5, {
+    autoAlpha: 0,
+    display: 'none',
+    onComplete() {
+      TweenMax.to('.portfolio-wrapper', 0.5, {
+        autoAlpha: 1,
+        marginTop: '0px'
+      });
+    }
+  });
+});
 
 $(document).ajaxStop(function(){
 	setTimeout(function(){
