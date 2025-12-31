@@ -1670,33 +1670,7 @@ figure.dotted-bg {
         background: #36a1ff;
         color: #ffffff; }
 
-#portfolio-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 998;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-body.portfolio-single-active #portfolio-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-#portfolio-single-holder {
-  position: relative;
-  z-index: 999;
-}
-body.portfolio-single-active:before {
-  opacity: 1;
-  visibility: visible;
-  background: rgba(0, 0, 0, 0.6); /* darker = clearer */
-}
-/* Portfolio Overlay - Add this to your existing style.css */
-
-/* Dark overlay that appears behind portfolio items */
+/* Portfolio Overlay */
 #portfolio-overlay {
   position: fixed;
   top: 0;
