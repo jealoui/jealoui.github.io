@@ -262,7 +262,6 @@ $(function(){
 	};
 	jarallaxPlugin();
 
-	
 
 	var accordion = function() {
 		$('.btn-link[aria-expanded="true"]').closest('.accordion-item').addClass('active');
@@ -284,7 +283,6 @@ $(function(){
 		$(this).removeClass('unfocus');
 		links.removeClass('unfocus');
 	})
-
 
 
 	var siteIstotope = function() {
@@ -524,6 +522,16 @@ var loadPortfolioSinglePage = function(id, href) {
 		url: href,
 		type: 'GET',
 		success: function(html) {
+			  $('body').addClass('portfolio-single-active');
+
+  TweenMax.to('.portfolio-wrapper', 1, {
+    marginTop: '50px',
+    autoAlpha: 0,
+    visibility: 'hidden',
+    onComplete() {
+      TweenMax.set('.portfolio-wrapper', { height: 0 });
+    }
+  });
 
 			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '50px', autoAlpha: 0, visibility: 'hidden', onComplete() {
 				TweenMax.set('.portfolio-wrapper', { height: 0 });
