@@ -799,7 +799,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     width: 90px;
     height: 20px; }
   .wave path {
-    stroke: #0389ff;
+    stroke: #f15f47;
     stroke-width: 2px;
     stroke-linecap: round;
     fill: none; }
@@ -1697,4 +1697,7 @@ body.portfolio-open:before {
   position: relative;
   z-index: 901;
   box-shadow: none !important;
+}
+.col-lg-7 .gsap-reveal-hero {
+  color: #ffffff !important;
 }
