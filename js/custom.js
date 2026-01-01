@@ -574,6 +574,40 @@ var loadPortfolioSinglePage = function(id, href) {
 
 portfolioItemClick();
 
+var owlSingleSlider = function () {
+  if ($('.single-slider').length) {
+    $('.single-slider').owlCarousel({
+      center: false,
+      items: 1,
+      loop: true,
+      stagePadding: 0,
+      margin: 0,
+      smartSpeed: 1500,
+      autoplay: true,
+      autoHeight: true,
+      autoplayHoverPause: true,
+      dots: true,
+      nav: true,
+      navText: [
+        '<span class="icon-keyboard_backspace"></span>',
+        '<span class="icon-keyboard_backspace"></span>'
+      ],
+      responsive: {
+        400: {
+          stagePadding: 0,
+          margin: 0
+        },
+        600: {
+          stagePadding: 0,
+          margin: 0
+        }
+      }
+    });
+  }
+};
+
+// CLOSE the jQuery document-ready wrapper
+});
 
 
 
