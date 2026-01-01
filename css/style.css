@@ -1678,7 +1678,7 @@ figure.dotted-bg {
   width: 100%;
   margin: 60px auto;                          /* space around the card */
   padding: 40px 40px;                         /* more space inside */
-  background: #ffffff;
+  background: #dadada;
   color: #000000;
   border-radius: 1px;
   box-shadow: none !important;
