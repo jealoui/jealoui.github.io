@@ -487,31 +487,30 @@ var portfolioItemClick = function() {
 		}, 200);
 		
 
-    setTimeout(function(){
-        loadPortfolioSinglePage(id, href);
-    }, 100);
+		setTimeout(function(){
+			loadPortfolioSinglePage(id, href);
+		}, 100);
 
-    $('#portfolio-overlay').addClass('active');
-    e.preventDefault();
-});
+		e.preventDefault();
+
+	});
 
 	// Close
-$('body').on('click', '.js-close-portfolio', function(e) {
-  e.preventDefault();
+	$('body').on('click', '.js-close-portfolio', function() {
 
-  $('#portfolio-overlay').removeClass('active');
+		setTimeout(function(){
+			$('html, body').animate({
+				scrollTop: $('#portfolio-section').offset().top - 50
+			}, 700, 'easeInOutExpo');
+		}, 200);
 
-  $('#portfolio-single-holder').empty();
+		TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
+		TweenMax.to('.portfolio-single-inner', 1, { marginTop: '50px', opacity: 0,  display: 'none', onComplete() {
+			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '0px', autoAlpha: 1, position: 'relative' });
 
-  TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
-
-  TweenMax.to('.portfolio-wrapper', 1, {
-    marginTop: '0px',
-    autoAlpha: 1,
-    position: 'relative'
-  });
-
-});
+		} });
+		
+	});
 };
 
 $(document).ajaxStop(function(){
