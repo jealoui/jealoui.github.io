@@ -1670,7 +1670,7 @@ figure.dotted-bg {
         background: #36a1ff;
         color: #ffffff; }
 
-/* Darken Fancybox background overlay */
-.fancybox-bg {
-  background: rgba(0, 0, 0, 0.75) !important;
+/* Ai help*/
+body:before {
+  background: rgba(0, 0, 0, 0.7);
 }
