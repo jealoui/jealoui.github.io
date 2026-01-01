@@ -1,4 +1,9 @@
-
+/*
+* Template Name: Space
+* Template Author: Untree.co
+* Author URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
@@ -948,9 +953,10 @@ figure.dotted-bg {
     .portfolio-single-inner .heading-portfolio-single-h2 {
       font-size: 30px; } }
 
-#portfolio-single-holder {
+#portfolio-single-holder .portfolio-single-inner {
   position: relative;
-  z-index: 999;
+  opacity: 1 !important;
+  display: block !important;
 }
 
 .unslate_co--close-portfolio {
@@ -1665,43 +1671,38 @@ figure.dotted-bg {
         background: #36a1ff;
         color: #ffffff; }
 
-/* Ai help*/
-
-#portfolio-single-holder {
-  position: relative;
-  z-index: 999;
-}
+/* ===== Portfolio popup overlay ===== */
 
 #portfolio-overlay {
   position: fixed;
+  inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.7);  /* darker dim behind popup */
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s all ease;
+  z-index: 950;              /* under popup content, above page */
+}
+
+/* When active */
+#portfolio-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Make the holder a true fullscreen popup container */
+#portfolio-single-holder {
+  position: fixed;           /* was relative */
   inset: 0;
-  background: rgba(0, 0, 0, 0.8); /* dark enough to feel modal */
+  z-index: 960;              /* above overlay */
+  overflow-y: auto;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 998;
+  transition: 0.3s all ease;
 }
-#portfolio-overlay.active {
+
+/* Active state for popup content */
+#portfolio-single-holder.is-active {
   opacity: 1;
   pointer-events: auto;
 }
-#portfolio-single-holder,
-#portfolio-single-holder * {
-  position: relative;
-  z-index: 999;
-}
-/* Fix dark text inside AJAX portfolio popup */
-#portfolio-single-holder .gsap-reveal .cover {
-  display: none !important;
-}
 
-#portfolio-single-holder .gsap-reveal .reveal-content {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Optional: give the popup content a solid background so everything is readable */
-#portfolio-single-holder .portfolio-single-inner {
-  background: #ffffff;
-  color: #000000;
-}
