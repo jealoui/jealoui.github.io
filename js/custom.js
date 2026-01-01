@@ -467,10 +467,12 @@ OnePageNavigation();
 
 // load ajax page
 var portfolioItemClick = function() {
-	$('.ajax-load-page').on('click', function(e) {
+  $('.ajax-load-page').on('click', function(e) {
 
-		var id = $(this).data('id'),
-		href = $(this).attr('href');
+    $('body').addClass('portfolio-open');   // <<< ADD THIS LINE
+
+    var id = $(this).data('id'),
+        href = $(this).attr('href');
 
 		if ( $('#portfolio-single-holder > div').length ) {
 			$('#portfolio-single-holder > div').remove();
@@ -497,7 +499,7 @@ var portfolioItemClick = function() {
 
 	// Close
 	$('body').on('click', '.js-close-portfolio', function() {
-
+  $('body').removeClass('portfolio-open');   // <<< ADD THIS LINE
 		setTimeout(function(){
 			$('html, body').animate({
 				scrollTop: $('#portfolio-section').offset().top - 50
