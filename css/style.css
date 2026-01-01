@@ -1686,7 +1686,6 @@ figure.dotted-bg {
   background: #ffffff;
   color: #000000;
   border-radius: 1px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22); /* softer, not a second box */
 	
 }
 /* Darken page when portfolio popup is open */
