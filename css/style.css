@@ -1671,15 +1671,15 @@ figure.dotted-bg {
 #portfolio-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* lighter + less contrast */
+  background: rgba(0,0,0,.45);
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s all ease;
+  transition: .3s ease;
   z-index: 5000;
 }
 
-#portfolio-overlay.is-active {
-  opacity: 0.25;
+#portfolio-overlay.active {
+  opacity: 1;
   visibility: visible;
 }
 
