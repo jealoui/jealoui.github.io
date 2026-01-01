@@ -1685,3 +1685,8 @@ figure.dotted-bg {
   opacity: 1;
   pointer-events: auto;
 }
+#portfolio-single-holder,
+#portfolio-single-holder * {
+  position: relative;
+  z-index: 999;
+}
