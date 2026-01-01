@@ -1669,3 +1669,27 @@ figure.dotted-bg {
       .site-footer .social li a:hover {
         background: #36a1ff;
         color: #ffffff; }
+
+/* --- Popup visual tweaks only, no JS logic touched --- */
+
+/* Adjust dim amount behind the popup */
+#portfolio-overlay {
+  background: rgba(0, 0, 0, 0.40); /* tweak this up/down if needed */
+}
+
+/* Make sure the holder itself isn't drawing a second "box" */
+#portfolio-single-holder {
+  background: transparent !important;
+}
+
+/* Single clean popup card with good padding and softer shadow */
+#portfolio-single-holder .portfolio-single-inner {
+  max-width: 960px;
+  width: 100%;
+  margin: 60px auto;                          /* space around the card */
+  padding: 60px 60px;                         /* more space inside */
+  background: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22); /* softer, not a second box */
+}
