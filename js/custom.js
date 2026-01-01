@@ -606,7 +606,7 @@ var owlSingleSlider = function () {
   }
 };
 
-// CLOSE the jQuery document-ready wrapper
+// CLOSE the $(function(){ ... });
 });
 
 
