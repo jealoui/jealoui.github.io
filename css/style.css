@@ -1670,38 +1670,32 @@ figure.dotted-bg {
 
 #portfolio-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.45);
+  inset: 0;                         /* full screen */
+  background: rgba(0, 0, 0, 0.35);  /* a bit lighter */
   opacity: 0;
   visibility: hidden;
-  transition: .3s ease;
-  z-index: 5000;
+  transition: 0.3s all ease;
+  z-index: 5000;                    /* over the page, under popup */
 }
 
+/* When active */
 #portfolio-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-/* Single popup card */
-#portfolio-single-holder .portfolio-single-inner {
-  position: relative;
-  opacity: 1 !important;
-  display: block !important;
-  background: #ffffff;
-  color: #000000;
-  max-width: 1080px;
-  width: 100%;
-  margin: 60px auto;                  /* centers it in the holder */
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);  /* smaller, softer shadow */
-  padding: 60px 60px;                 /* more padding around everything */
+/* Fullscreen popup holder */
+#portfolio-single-holder {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;    /* or center if you really want */
+  padding: 60px 20px;
+  box-sizing: border-box;
+  z-index: 6000;
+  pointer-events: auto;       /* just let it receive clicks */
 }
 
-/* Active state for popup content */
-#portfolio-single-holder.is-active {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 
