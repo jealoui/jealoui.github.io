@@ -6,13 +6,9 @@ AOS.init({
 
 $(function(){
 
-		'use strict';
-
-	// Remove portfolio-single-active class on page load
-	$('body').removeClass('portfolio-single-active');
+	'use strict';
 
 	$(".loader").delay(50).fadeOut("slow");
-
 	$("#overlayer").delay(50).fadeOut("slow");	
 
 	var siteMenuClone = function() {
@@ -480,9 +476,6 @@ var portfolioItemClick = function() {
 			$('#portfolio-single-holder > div').remove();
 		} 
 
-		// Add active class to body to trigger overlay
-		$('body').addClass('portfolio-single-active');
-
 		TweenMax.to('.loader-portfolio-wrap', 1, { top: '-50px', autoAlpha: 1, display: 'block', ease: Power4.easeOut });
 
 		setTimeout(function() {
@@ -505,9 +498,6 @@ var portfolioItemClick = function() {
 	// Close
 	$('body').on('click', '.js-close-portfolio', function() {
 
-		// Remove active class to hide overlay
-		$('body').removeClass('portfolio-single-active');
-
 		setTimeout(function(){
 			$('html, body').animate({
 				scrollTop: $('#portfolio-section').offset().top - 50
@@ -521,14 +511,7 @@ var portfolioItemClick = function() {
 		} });
 		
 	});
-
-	// Close when clicking on the overlay background
-	$('body').on('click', '#portfolio-overlay', function() {
-		$('.js-close-portfolio').trigger('click');
-	});
 };
-
-portfolioItemClick();
 
 $(document).ajaxStop(function(){
 	setTimeout(function(){
@@ -577,6 +560,9 @@ var loadPortfolioSinglePage = function(id, href) {
 	return false;
 
 };
+
+portfolioItemClick();
+
 
 
 var owlSingleSlider = function () {
