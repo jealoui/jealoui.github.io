@@ -468,7 +468,7 @@ OnePageNavigation();
 // load ajax page
 var portfolioItemClick = function() {
 	$('.ajax-load-page').on('click', function(e) {
-
+$('#portfolio-overlay').addClass('active');
 		var id = $(this).data('id'),
 		href = $(this).attr('href');
 
