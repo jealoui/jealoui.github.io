@@ -1671,9 +1671,19 @@ figure.dotted-bg {
         color: #ffffff; }
 
 /* Ai help*/
-body.offcanvas-menu:before,
-body.modal-open:before,
-body:before {
-  opacity: 1 !important;
-  z-index: 999;
+/* Ensure Fancybox backdrop is visible */
+.fancybox-bg {
+  background: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Make sure Fancybox sits above theme overlays */
+.fancybox-container {
+  z-index: 999999 !important;
+}
+
+/* Disable theme overlay when Fancybox is open */
+body.fancybox-active #overlayer,
+body.fancybox-active .loader,
+body.fancybox-active body:before {
+  display: none !important;
 }
