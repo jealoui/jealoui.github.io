@@ -1,9 +1,4 @@
-/*
-* Template Name: Space
-* Template Author: Untree.co
-* Author URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/
+
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
@@ -1686,6 +1681,7 @@ figure.dotted-bg {
   background: #ffffff;
   color: #000000;
   border-radius: 1px;
+  box-shadow: none !important;
 	
 }
 /* Darken page when portfolio popup is open */
@@ -1700,4 +1696,5 @@ body.portfolio-open:before {
 #portfolio-single-holder .portfolio-single-inner {
   position: relative;
   z-index: 901;
+  box-shadow: none !important;
 }
