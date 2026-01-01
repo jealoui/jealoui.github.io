@@ -1674,5 +1674,6 @@ figure.dotted-bg {
 body.offcanvas-menu:before,
 body.modal-open:before,
 body:before {
-  background: rgba(0, 0, 0, 0.7);
+  opacity: 1 !important;
+  z-index: 999;
 }
