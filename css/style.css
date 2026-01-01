@@ -955,9 +955,8 @@ figure.dotted-bg {
 
 #portfolio-single-holder .portfolio-single-inner {
   position: relative;
-  opacity: 1 !important;
-  display: block !important;
-}
+  opacity: 0;
+  display: none; }
 
 .unslate_co--close-portfolio {
   position: absolute;
@@ -1670,39 +1669,3 @@ figure.dotted-bg {
       .site-footer .social li a:hover {
         background: #36a1ff;
         color: #ffffff; }
-
-/* ===== Portfolio popup overlay ===== */
-
-#portfolio-overlay {
-  position: fixed;
-  inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
-  background: rgba(0, 0, 0, 0.7);  /* darker dim behind popup */
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s all ease;
-  z-index: 950;              /* under popup content, above page */
-}
-
-/* When active */
-#portfolio-overlay.is-active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Make the holder a true fullscreen popup container */
-#portfolio-single-holder {
-  position: fixed;           /* was relative */
-  inset: 0;
-  z-index: 960;              /* above overlay */
-  overflow-y: auto;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s all ease;
-}
-
-/* Active state for popup content */
-#portfolio-single-holder.is-active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
