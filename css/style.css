@@ -1671,16 +1671,18 @@ figure.dotted-bg {
         background: #36a1ff;
         color: #ffffff; }
 
+
+
 /* ===== Portfolio popup overlay ===== */
 
 #portfolio-overlay {
   position: fixed;
-  inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
-  background: rgba(0, 0, 0, 0.45);  /* lighter dim */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* clearly lighter */
   opacity: 0;
   visibility: hidden;
   transition: 0.3s all ease;
-  z-index: 950;              /* under popup content, above page */
+  z-index: 5000; /* force above other theme effects */
 }
 
 /* When active */
@@ -1689,29 +1691,32 @@ figure.dotted-bg {
   visibility: visible;
 }
 
-/* Make the holder a true fullscreen popup container */
+/* Fullscreen popup holder */
 #portfolio-single-holder {
   display: flex;
   justify-content: center;
-  align-items: center;   /* vertical center */
-  padding: 60px 20px;
+  align-items: flex-start;  /* avoids weird vertical compression */
+  padding: 100px 40px;      /* MORE breathing room around popup */
   box-sizing: border-box;
+  background: transparent !important;
+  z-index: 6000;
 }
 
-/* Style the popup box */
+/* Popup box */
 #portfolio-single-holder .portfolio-single-inner {
   background: #ffffff;
   color: #000000;
-  max-width: 960px;
+  max-width: 1080px;        /* a touch wider */
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-  padding: 40px 30px;
+  border-radius: 14px;
+  box-shadow: 0 40px 100px rgba(0,0,0,.28);
+  padding: 60px 50px;       /* MORE internal padding */
 }
 
-/* Active state for popup content */
+/* Make sure popup itself can activate */
 #portfolio-single-holder.is-active {
   opacity: 1;
   pointer-events: auto;
 }
+
 
