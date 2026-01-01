@@ -953,12 +953,6 @@ figure.dotted-bg {
     .portfolio-single-inner .heading-portfolio-single-h2 {
       font-size: 30px; } }
 
-#portfolio-single-holder .portfolio-single-inner {
-  position: relative;
-  opacity: 1 !important;
-  display: block !important;
-}
-
 .unslate_co--close-portfolio {
   position: absolute;
   top: -10px;
@@ -1677,7 +1671,7 @@ figure.dotted-bg {
 #portfolio-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.15); /* lighter + less contrast */
+  background: rgba(0, 0, 0, 0.45); /* lighter + less contrast */
   opacity: 0;
   visibility: hidden;
   transition: 0.3s all ease;
@@ -1685,7 +1679,7 @@ figure.dotted-bg {
 }
 
 #portfolio-overlay.is-active {
-  opacity: 0.15;
+  opacity: 0.25;
   visibility: visible;
 }
 
@@ -1700,7 +1694,7 @@ figure.dotted-bg {
   width: 100%;
   margin: 60px auto;                  /* centers it in the holder */
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);  /* smaller, softer shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);  /* smaller, softer shadow */
   padding: 60px 60px;                 /* more padding around everything */
 }
 
