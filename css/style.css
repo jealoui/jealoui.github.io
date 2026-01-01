@@ -1672,11 +1672,6 @@ figure.dotted-bg {
 
 /* --- Popup visual tweaks only, no JS logic touched --- */
 
-/* Adjust dim amount behind the popup */
-#portfolio-overlay {
-  background: rgba(0, 0, 0, 0.40); /* tweak this up/down if needed */
-}
-
 /* Make sure the holder itself isn't drawing a second "box" */
 #portfolio-single-holder {
   background: transparent !important;
@@ -1717,5 +1712,44 @@ body:has(#portfolio-single-holder .portfolio-single-inner)::before {
 #portfolio-single-holder .portfolio-single-inner {
   position: relative;
   z-index: 901;
+}
+/* --- Portfolio popup overlay + card --- */
+
+/* Full-screen dimmer behind the popup */
+#portfolio-overlay {
+  position: fixed;
+  inset: 0;                         /* full viewport */
+  background: rgba(0, 0, 0, 0.45);  /* adjust 0.45 lighter/darker */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;             /* don't block clicks when hidden */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 900;
+}
+
+/* When JS adds this class, the dimmer becomes visible */
+#portfolio-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;             /* block clicks to the page */
+}
+
+/* Make sure the holder itself is not acting like a second box */
+#portfolio-single-holder {
+  position: relative;
+  z-index: 901;
+  background: transparent !important;
+}
+
+/* Single clean popup card */
+#portfolio-single-holder .portfolio-single-inner {
+  max-width: 960px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 32px 32px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22);
 }
 
