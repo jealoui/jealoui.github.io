@@ -1690,3 +1690,18 @@ figure.dotted-bg {
   position: relative;
   z-index: 999;
 }
+/* Fix dark text inside AJAX portfolio popup */
+#portfolio-single-holder .gsap-reveal .cover {
+  display: none !important;
+}
+
+#portfolio-single-holder .gsap-reveal .reveal-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Optional: give the popup content a solid background so everything is readable */
+#portfolio-single-holder .portfolio-single-inner {
+  background: #ffffff;
+  color: #000000;
+}
