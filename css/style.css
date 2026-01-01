@@ -1,9 +1,4 @@
-/*
-* Template Name: Space
-* Template Author: Untree.co
-* Author URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/
+
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
@@ -953,10 +948,10 @@ figure.dotted-bg {
     .portfolio-single-inner .heading-portfolio-single-h2 {
       font-size: 30px; } }
 
-#portfolio-single-holder .portfolio-single-inner {
+#portfolio-single-holder {
   position: relative;
-  opacity: 0;
-  display: none; }
+  z-index: 999;
+}
 
 .unslate_co--close-portfolio {
   position: absolute;
@@ -1671,19 +1666,22 @@ figure.dotted-bg {
         color: #ffffff; }
 
 /* Ai help*/
-/* Ensure Fancybox backdrop is visible */
-.fancybox-bg {
-  background: rgba(0, 0, 0, 0.75) !important;
+
+#portfolio-single-holder {
+  position: relative;
+  z-index: 999;
 }
 
-/* Make sure Fancybox sits above theme overlays */
-.fancybox-container {
-  z-index: 999999 !important;
+#portfolio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8); /* dark enough to feel modal */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 998;
 }
-
-/* Disable theme overlay when Fancybox is open */
-body.fancybox-active #overlayer,
-body.fancybox-active .loader,
-body.fancybox-active body:before {
-  display: none !important;
+#portfolio-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
