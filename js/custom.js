@@ -496,17 +496,29 @@ $('#portfolio-overlay').addClass('active');
 	});
 
 	// Close
-	$('body').on('click', '.js-close-portfolio', function() {
+$('body').on('click', '.js-close-portfolio', function() {
 
-		setTimeout(function(){
-			$('html, body').animate({
-				scrollTop: $('#portfolio-section').offset().top - 50
-			}, 700, 'easeInOutExpo');
-		}, 200);
+  $('#portfolio-overlay').removeClass('active');
 
-		TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
-		TweenMax.to('.portfolio-single-inner', 1, { marginTop: '50px', opacity: 0,  display: 'none', onComplete() {
-			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '0px', autoAlpha: 1, position: 'relative' });
+  setTimeout(function(){
+    $('html, body').animate({
+      scrollTop: $('#portfolio-section').offset().top - 50
+    }, 700, 'easeInOutExpo');
+  }, 200);
+
+  TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
+  TweenMax.to('.portfolio-single-inner', 1, {
+    marginTop: '50px',
+    opacity: 0,
+    display: 'none',
+    onComplete() {
+
+      $('#portfolio-overlay').removeClass('active'); // safety kill switch
+
+      TweenMax.to('.portfolio-wrapper', 1, {
+        marginTop: '0px',
+        autoAlpha: 1,
+        position: 'relative'
 
 		} });
 		
@@ -537,7 +549,37 @@ var loadPortfolioSinglePage = function(id, href) {
 				'<div id="portfolio-single-'+id+
 				'" class="portfolio-single-inner"><span class="unslate_co--close-portfolio js-close-portfolio d-flex align-items-center"><span class="icon-close2 wrap-icon-close"></span></span>' + getHTMLContent + '</div>'
 				);
+$('body').on('click', '.js-close-portfolio', function() {
 
+  $('#portfolio-overlay').removeClass('active');
+
+  setTimeout(function(){
+    $('html, body').animate({
+      scrollTop: $('#portfolio-section').offset().top - 50
+    }, 700, 'easeInOutExpo');
+  }, 200);
+
+  TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
+  TweenMax.to('.portfolio-single-inner', 1, {
+    marginTop: '50px',
+    opacity: 0,
+    display: 'none',
+    onComplete() {
+
+      $('#portfolio-overlay').removeClass('active'); // safety kill switch
+
+      TweenMax.to('.portfolio-wrapper', 1, {
+        marginTop: '0px',
+        autoAlpha: 1,
+        position: 'relative'
+      });
+
+    }
+  });
+
+});
+
+			
 			setTimeout(function() {
 				owlSingleSlider();
 				$('html, body').animate({
