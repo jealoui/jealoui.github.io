@@ -1676,7 +1676,7 @@ figure.dotted-bg {
 #portfolio-overlay {
   position: fixed;
   inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
-  background: rgba(0, 0, 0, 0.7);  /* darker dim behind popup */
+  background: rgba(0, 0, 0, 0.45);  /* lighter dim */
   opacity: 0;
   visibility: hidden;
   transition: 0.3s all ease;
@@ -1691,13 +1691,22 @@ figure.dotted-bg {
 
 /* Make the holder a true fullscreen popup container */
 #portfolio-single-holder {
-  position: fixed;           /* was relative */
-  inset: 0;
-  z-index: 960;              /* above overlay */
-  overflow-y: auto;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s all ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;   /* vertical center */
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+/* Style the popup box */
+#portfolio-single-holder .portfolio-single-inner {
+  background: #ffffff;
+  color: #000000;
+  max-width: 960px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  padding: 40px 30px;
 }
 
 /* Active state for popup content */
