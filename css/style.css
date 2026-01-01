@@ -1693,3 +1693,29 @@ figure.dotted-bg {
   border-radius: 1px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22); /* softer, not a second box */
 }
+/* === CSS-only dimmer when portfolio popup is open === */
+
+/* Base: no dim */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.0);  /* start invisible */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;                     /* under the popup card */
+}
+
+/* When the popup exists, dim the background */
+body:has(#portfolio-single-holder .portfolio-single-inner)::before {
+  background: rgba(0, 0, 0, 0.45);  /* dim strength */
+  opacity: 1;
+}
+
+/* Make sure the popup card sits above that dim layer */
+#portfolio-single-holder .portfolio-single-inner {
+  position: relative;
+  z-index: 901;
+}
+
