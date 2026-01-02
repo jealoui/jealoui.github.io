@@ -509,6 +509,18 @@ var portfolioItemClick = function() {
 		TweenMax.set('.portfolio-wrapper', { visibility: 'visible', height: 'auto' });
 		TweenMax.to('.portfolio-single-inner', 1, { marginTop: '50px', opacity: 0,  display: 'none', onComplete() {
 			TweenMax.to('.portfolio-wrapper', 1, { marginTop: '0px', autoAlpha: 1, position: 'relative' });
+// Close popup when clicking the dark background
+$('body').on('click', function(e) {
+
+  // Only run if portfolio is open
+  if (!$('body').hasClass('portfolio-open')) return;
+
+  // If click was inside the popup, do nothing
+  if ($(e.target).closest('.portfolio-single-inner').length) return;
+
+  // Otherwise, close the popup
+  $('.js-close-portfolio').trigger('click');
+});
 
 		} });
 		
